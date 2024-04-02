@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -37,7 +38,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $this->validation($request->all());
         $project = new Project;
         $project->fill($data);
         $project->save();
@@ -75,7 +76,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $data = $request->all();
+        $data = $this->validation($request->all(), $project->id);
         $project->update($data);
         return redirect()->route('admin.projects.show', $project)->with('message-class', 'alert-success')->with('message', 'Progetto modificato correttamente.');
     }
@@ -90,5 +91,37 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message-class', 'alert-danger')->with('message', 'Progetto eliminato correttamente.');
+    }
+
+
+
+    //** Validation function*/ 
+
+    private function validation($data, $id = null)
+    {
+
+        return Validator::make(
+            $data,
+            [
+                'title' => 'required|unique:projects,title|string|max:50',
+                'slug' => "nullable|string|max:50",
+                "description" => "nullable|string",
+                "github_url" => "nullable|string|max:150",
+                "image_preview" => "nullable|string|max:150",
+            ],
+            [
+                'title.required' => 'Il titolo è obbligatorio',
+                'title.string' => 'Il titolo deve essere una stringa',
+                'title.max' => 'Il titolo deve massimo di 50 caratteri',
+
+                'slug.max' => 'Lo slug deve massimo di 50 caratteri',
+
+                'description.string' => 'La descrizione deve essere una stringa',
+
+                'github_url.string' => "L'url deve massimo di 150 caratteri",
+
+                'image_preview.string' => "L'url deve massimo di 150 caratteri"
+            ]
+        )->validate();
     }
 }
