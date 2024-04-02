@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mb-4">
     <h1 class="my-4">Lista Progetti</h1>
 
-    <a href="{{route('admin.projects.create')}}" class="btn btn-primary my-4">Inserisci nuovo progetto</a>
+    <a href="{{route('admin.projects.create')}}" class="btn btn-primary mb-4">Inserisci nuovo progetto</a>
 
-    <div class="row">
+    <div class="row g-4">
 
         @forelse($projects as $project)
         <div class="col-3">
             <div class="card" style="width: 18rem;">
                 <img src="{{$project->image_preview}}" class="card-img-top" alt="{{$project->image_preview}}">
                 <div class="card-body">
-                    <h5 class="card-title text-bg-primary p-3">{{$project->title}}</h5>
+                    <h5 class="card-title text-bg-info text-white p-3">{{$project->title}}</h5>
                     <p class="card-text">{{$project->description}}</p>
                     <a href="{{$project->github_url}}"><i class="fa-brands fa-github fa-xl link-dark"></i></a>
                     <a href="{{route('admin.projects.show', $project)}}" class="btn btn-secondary d-block mt-3">Apri</a>
