@@ -11,7 +11,6 @@
         <h1 class="my-3">Aggiungi nuovo Progetto</h1>
         <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
-            @method('PUT')
 
             <label for="title" class="form-label">Titolo: </label>
             <input type="text" class="form-control" id="title" name="title" />

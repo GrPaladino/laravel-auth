@@ -32,7 +32,7 @@
 
 @section('modal')
 <!-- Modal -->
-<div class="modal fade" id="project-{{$project->id}}" tabindex="-1" aria-labelledby="character-{{$project->id}}" aria-hidden="true">
+<div class="modal fade" id="project-{{$project->id}}" tabindex="-1" aria-labelledby="project-{{$project->id}}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
