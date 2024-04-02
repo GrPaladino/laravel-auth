@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pagina iniziale')
+@section('title', $project->title)
 
 @section('content')
 <div class="container mt-4">
@@ -20,7 +20,7 @@
             <h5 class="card-title text-bg-primary p-3">{{$project->title}}</h5>
             <p class="card-text">{{$project->description}}</p>
             <a href="{{$project->github_url}}" class="btn btn-dark d-block mt-3">
-                <i class="fa-brands fa-github mx-2"></i>Github</a>
+                <i class="fa-brands fa-github me-2"></i>Github</a>
         </div>
     </div>
 </div>

@@ -4,6 +4,8 @@
 <div class="container">
     <h1 class="my-4">Lista Progetti</h1>
 
+    <a href="{{route('admin.projects.create')}}" class="btn btn-primary my-3">Inserisci nuovo progetto</a>
+
     <div class="row">
 
         @forelse($projects as $project)
@@ -14,7 +16,7 @@
                     <h5 class="card-title text-bg-primary p-3">{{$project->title}}</h5>
                     <p class="card-text">{{$project->description}}</p>
                     <a href="{{$project->github_url}}">Github</a>
-                    <a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary d-block mt-3">Apri</a>
+                    <a href="{{route('admin.projects.show', $project)}}" class="btn btn-secondary d-block mt-3">Apri</a>
                 </div>
             </div>
         </div>
