@@ -14,7 +14,7 @@
 
 
 
-        <h1 class="my-3">Aggiungi nuovo Progetto</h1>
+        <h1 class="my-3">Modifica Progetto</h1>
         <form action="{{ route('admin.projects.update', $project) }}" method="POST">
             @csrf
             @method('PUT')
@@ -91,7 +91,4 @@
         </div>
     </div>
 </div>
-
-
-
 @endsection
