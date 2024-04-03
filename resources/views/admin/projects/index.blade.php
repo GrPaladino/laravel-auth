@@ -4,14 +4,14 @@
 <div class="container mb-4">
     <h1 class="my-4">Lista Progetti</h1>
 
-    <a href="{{route('admin.projects.create')}}" class="btn btn-primary mb-4">Inserisci nuovo progetto</a>
+    <a href="{{route('admin.projects.create')}}" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>Nuovo progetto</a>
 
     <div class="row g-4">
 
         @forelse($projects as $project)
         <div class="col-3">
             <div class="card" style="width: 18rem;">
-                <img src="https://picsum.photos/200/300" class="card-img-top" alt="{{$project->image_preview}}">
+                <img src="{{$project->image_preview}}" class="card-img-top" alt="{{$project->image_preview}}">
                 <div class="card-body">
                     <h5 class="card-title text-bg-info text-white p-3">{{$project->title}}</h5>
                     <p class="card-text my-4">{{$project->description}}</p>
@@ -19,8 +19,8 @@
                 <div class="links p-4">
 
                     <a href="{{$project->github_url}}"><i class="fa-brands fa-github fa-xl link-dark"></i></a>
-                    <a href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye fa-xl"></i></a>
-                    <a href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-pencil fa-xl"></i></a>
+                    <a href="{{route('admin.projects.show', $project)}}"><i class="fa-solid link-primary fa-eye fa-xl"></i></a>
+                    <a href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid link-primary fa-pencil fa-xl"></i></a>
                     <button type="button" class="btn btn-link text-danger" data-bs-toggle="modal" data-bs-target="#project-{{$project->id}}">
                         <i class="fa-solid fa-trash fa-xl"></i>
                     </button>

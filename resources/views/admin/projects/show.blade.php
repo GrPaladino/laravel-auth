@@ -5,22 +5,27 @@
 @section('content')
 <div class="container mt-4">
 
-    <a href="{{route('admin.projects.index')}}" class="btn btn-primary my-3">Torna alla lista</a>
-    <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-primary my-3">Modifica</a>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#project-{{$project->id}}">
-        Elimina
-    </button>
+    <a href="{{route('admin.projects.index')}}" class="btn btn-primary my-3 fs-4">Torna alla lista</a>
 
 
 
 
-    <div class="card" style="width: 18rem;">
-        <img src="{{$project->image_preview}}" class="card-img-top" alt="{{$project->image_preview}}">
-        <div class="card-body">
-            <h5 class="card-title text-bg-primary p-3">{{$project->title}}</h5>
+    <h2 class="card-title fs-1 mt-3">{{$project->title}}</h2>
+    <div class="d-flex mt-5">
+
+        <div class="img me-5" style="width: 18rem;">
+            <img src="{{$project->image_preview}}" class="card-img-top" alt="{{$project->image_preview}}">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-between">
             <p class="card-text">{{$project->description}}</p>
-            <a href="{{$project->github_url}}" class="btn btn-dark d-block mt-3">
-                <i class="fa-brands fa-github me-2"></i>Github</a>
+            <div class="links text-start">
+                <a href="{{$project->github_url}}" class="mb-3"><i class="fa-brands fa-github link-dark fa-2xl me-3"></i></a>
+                <a href="{{route('admin.projects.edit', $project)}}" class="mb-3"><i class="fa-solid link-primary fa-pencil fa-xl me-3"></i></a>
+                <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#project-{{$project->id}}">
+                    <i class="fa-solid link-danger fa-trash fa-xl"></i>
+                </button>
+
+            </div>
         </div>
     </div>
 </div>

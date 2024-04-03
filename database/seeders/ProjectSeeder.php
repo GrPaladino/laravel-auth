@@ -21,6 +21,7 @@ class ProjectSeeder extends Seeder
         $project->slug = Str::slug($project->title);
         $project->description = 'Rappresentazione del mitico gioco Campo Minato, creato usando html, css e javascript.';
         $project->github_url = 'https://github.com/GrPaladino/js-campominato-grid';
+        $project->image_preview = 'https://picsum.photos/200/300';
         $project->save();
     }
 }
