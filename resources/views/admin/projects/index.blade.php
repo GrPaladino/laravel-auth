@@ -13,8 +13,8 @@
             <div class="card" style="width: 18rem;">
                 <img src="{{$project->image_preview}}" class="card-img-top" alt="{{$project->image_preview}}">
                 <div class="card-body">
-                    <h5 class="card-title text-bg-info text-white p-3">{{$project->title}}</h5>
-                    <p class="card-text my-4">{{$project->description}}</p>
+                    <h4 class="card-title mb-4">{{$project->title}}</h4>
+                    <p class="card-text my-4">{{$project->getAbstract(50)}}</p>
                 </div>
                 <div class="links p-4">
 
