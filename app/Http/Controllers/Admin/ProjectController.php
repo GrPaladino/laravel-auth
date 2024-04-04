@@ -23,11 +23,10 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view('admin.projects.create');
+        return view('admin.projects.form', compact('project'));
     }
 
     /**
@@ -64,7 +63,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        return view('admin.projects.form', compact('project'));
     }
 
     /**
